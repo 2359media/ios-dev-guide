@@ -15,7 +15,7 @@ This is an iOS standardization document for 2359 Media.
 	* [UICollectionView on iOS 5.x](#uicollectionview-on-ios-5x)
 	* [Attributed Label](#attributed-label)
 	* [Sidebar Menu (Hamburger UI)](#sidebar-menu-hamburger-ui)
-	* [UIView (Nib Loading and Geometry Shortcuts)](#uiview-nib-loading-and-gemotry-shortcuts)
+	* [UIView (Nib Loading and Geometry Shortcuts)](#uiview-nib-loading-and-geometry-shortcuts)
 	* [Page Control](#page-control)
 	* [UIAlertView and UIActionSheet (Block-based wrappers)](#uialertview-and-uiactionsheet-block-based-wrappers)
 * [Objective-C Coding Style](#objective-c-coding-style)
