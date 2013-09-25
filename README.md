@@ -1,6 +1,8 @@
 # iOS Development Guide
 
-This is an iOS standardization document for 2359 Media.
+This development guide outlines the standards and the best practices that are adopted by the iOS team at 2359 Media.
+
+This is the first draft of the guide. We are eager for the feedback from our developers. Please feel free to create [issues](https://github.com/2359media/ios-dev-guide/issues) for any suggestions.
 
 ## Table of Contents
 
@@ -23,7 +25,9 @@ This is an iOS standardization document for 2359 Media.
 
 ## Libraries
 
+We often use 3rd-party libraries in iOS projects. Here are a list of libraries that are widely used. 
 
+Developers are recommended to choose the listed library for that particular feature. If, however, developers want to use a different library or experiment a new library. Please [create a new issue](https://github.com/2359media/ios-dev-guide/issues/new) to argue that why an alternate library is better. 
 
 ### Networking
 
