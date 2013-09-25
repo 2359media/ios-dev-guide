@@ -4,21 +4,21 @@ This is an iOS standardization document for 2359 Media.
 
 ## Table of Contents
 
-* Libraries
-	* Networking
-	* JSON Parsing
-	* Urban Airship (Device Registration)
-	* HUD
-	* Reachability
-	* Pull-to-Refresh
-	* Social Network
-	* UICollectionView on iOS 5.x
-	* Attributed Label
-	* Sidebar Menu (Hamburger UI)
-	* UIView (Nib loading & Geometry shortcuts)
-	* Page Control
-	* UIAlertView and UIActionSheet (Block-based wrappers)
-* Coding Style
+* [Libraries](#libraries)
+	* [Networking](#networking)
+	* [JSON Parsing](#json-parsing)
+	* [Urban Airship (Device Registration)](#urban-airship-device-registration)
+	* [HUD](#hud)
+	* [Reachability](#reachability)
+	* [Pull-to-Refresh](#pull-to-refresh)
+	* [Social Network](#social-network)
+	* [UICollectionView on iOS 5.x](#uicollectionview-on-ios-5x)
+	* [Attributed Label](#attributed-label)
+	* [Sidebar Menu (Hamburger UI)](#sidebar-menu-hamburger-ui)
+	* [UIView (Nib Loading and Geometry Shortcuts)](#uiview-nib-loading-and-gemotry-shortcuts)
+	* [Page Control](#page-control)
+	* [UIAlertView and UIActionSheet (Block-based wrappers)](#uialertview-and-uiactionsheet-block-based-wrappers)
+* [Objective-C Coding Style](#objective-c-coding-style)
 	
 
 ## Libraries
@@ -36,7 +36,7 @@ AFNetworking 2.0 officially supports iOS 6+, Mac OS X 10.8+, and Xcode 5. If you
 
 ### JSON Parsing
 
-1. [`NSJSONSerialization`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSJSONSerialization_Class/Reference/Reference.html) (iOS 5+)
+1. [NSJSONSerialization](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSJSONSerialization_Class/Reference/Reference.html) (iOS 5+)
 
 2. [JSONKit](https://github.com/johnezang/JSONKit) by John Engelhart
 
@@ -63,7 +63,7 @@ AFNetworking 2.0 officially supports iOS 6+, Mac OS X 10.8+, and Xcode 5. If you
 
 ### Pull-to-Refresh
 
-1. [`UIRefreshControl`](https://developer.apple.com/library/ios/documentation/uikit/reference/UIRefreshControl_class/Reference/Reference.html) (iOS 6+)
+1. [UIRefreshControl](https://developer.apple.com/library/ios/documentation/uikit/reference/UIRefreshControl_class/Reference/Reference.html) (iOS 6+)
 
 2. [SVPullToRefresh](https://github.com/samvermette/SVPullToRefresh) by Sam Vermette
 
@@ -72,7 +72,7 @@ AFNetworking 2.0 officially supports iOS 6+, Mac OS X 10.8+, and Xcode 5. If you
 
 ### Social Network
 
-1. [`UIActivityViewController`](https://developer.apple.com/library/ios/documentation/uikit/reference/UIActivityViewController_Class/Reference/Reference.html)
+1. [UIActivityViewController](https://developer.apple.com/library/ios/documentation/uikit/reference/UIActivityViewController_Class/Reference/Reference.html)
 
 	Use system sharing sheet, so no custom UI is allowed. Use it whenever possible.
 
@@ -102,7 +102,7 @@ AFNetworking 2.0 officially supports iOS 6+, Mac OS X 10.8+, and Xcode 5. If you
 
 > A lightweight, easy to use, Side Drawer Navigation Controller
 
-### UIView (Nib loading & Geometry shortcuts)
+### UIView (Nib loading and Geometry shortcuts)
 
 [ViewUtils](https://github.com/nicklockwood/ViewUtils) by Nick Lockwood
 
@@ -120,6 +120,6 @@ AFNetworking 2.0 officially supports iOS 6+, Mac OS X 10.8+, and Xcode 5. If you
 
 > Modern block-based wrappers for UIAlertView and UIActionSheet.
 
-## Coding Style
+## Objective-C Coding Style
 
 Please refer to [2359media/objective-c-conventions](https://github.com/2359media/objective-c-conventions)
