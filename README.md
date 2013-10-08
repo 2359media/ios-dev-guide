@@ -6,12 +6,13 @@ This is the first draft of the guide. We are eager for the feedback from our dev
 
 ## Table of Contents
 
-* [Why This Is Required](why-this-is-required)
-* [Objective-C Coding Style](#objective-c-coding-style)
-* [Project Technical Conventions](project-technical-conventions)
+* [Why This Is Required](#why-this-is-required)
+* [Objective-C Coding Conventions](#objective-c-coding-conventions)
+* [Project Technical Conventions](#project-technical-conventions)
     * [Xcode](#xcode)
 	* [CocoaPods](#cocoapods)
-* [Libraries](#libraries)
+    * [Graphic Assets](#graphic-assets)
+* [Recommended Third-party Libraries](#recommended-third-party-libraries)
     * [Networking](#networking)
     * [JSON Parsing](#json-parsing)
     * [Urban Airship (Device Registration)](#urban-airship-device-registration)
@@ -25,6 +26,9 @@ This is the first draft of the guide. We are eager for the feedback from our dev
     * [UIView (Nib Loading and Geometry Shortcuts)](#uiview-nib-loading-and-geometry-shortcuts)
     * [Page Control](#page-control)
     * [UIAlertView and UIActionSheet (Block-based wrappers)](#uialertview-and-uiactionsheet-block-based-wrappers)
+* [Git](#git)
+    * [Commit Messages](#commit-messages)
+    * [Pivotal Tracker Post-Commit Hooks](#pivotal-tracker-post-commit-hooks)
 
 ## Why This Is Required
 
@@ -78,65 +82,6 @@ If a library doesn't have a `podspec`, you can create a `podspec` on your own an
 
 * Must include both @1x and @2x sizes.
 * Use JPEG format for large images, eg. background images.
-
-## Git
-
-We use Git as our source code management (SCM) system. We host
-repositories in GitHub. Here are the best practices of using
-Git and GitHub.
-
-### Commit Messages
-
-Please write good commit messages. Here's a model Git commit message:
-
-    Capitalized, short (50 chars or less) summary
-
-    More detailed explanatory text, if necessary.  Wrap it to about 72
-    characters or so.  In some contexts, the first line is treated as the
-    subject of an email and the rest of the text as the body.  The blank
-    line separating the summary from the body is critical (unless you omit
-    the body entirely); tools like rebase can get confused if you run the
-    two together.
-
-    Write your commit message in the imperative: "Fix bug" and not "Fixed bug"
-    or "Fixes bug."  This convention matches up with commit messages generated
-    by commands like git merge and git revert.
-
-    Further paragraphs come after blank lines.
-
-    - Bullet points are okay, too
-
-    - Typically a hyphen or asterisk is used for the bullet, preceded by a
-      single space, with blank lines in between, but conventions vary here
-
-    - Use a hanging indent
-
-Read [Tim Pope](http://tpo.pe/)'s post [*A Note About Git Commit
-Messages*](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-for more discussions.
-
-### Pivotal Tracker Post-Commit Hooks
-
-If commits are related to some Pivotal Tracker stories, use Pivotal
-Tracker post-commit hooks to link the commits to the particular stories.
-To do that, firstly, the GitHub repository of the project must enable Pivotal
-Tracker Service Hook in the settings. Secondly, add the story ID in the
-commit message using the format: '[#12345678]'. 
-
-To automatically finish a story by using a commit message, include
-"fixed", "completed", or "finished" in the square brackets in addition
-to the story ID. You may use different cases or forms of these verbs,
-such as "Fix" or "FIXES", and they may appear before or after the story
-ID. Note: For features, use of one of these keywords will put the story
-in the finished state. For chores, it will put the story in the accepted
-state.
-
-Here're some typical commit messages that include Pivotal Tracker
-post-commit hooks:
-
-* [#53928321] Create editorial page
-* [Fix #55789490] "$" sign appears in a wrong position
-* [Finish #53870315] Update icons for review buttons
 
 ## Recommended Third-party Libraries
 
@@ -242,4 +187,62 @@ AFNetworking 2.0 officially supports iOS 6+, Mac OS X 10.8+, and Xcode 5. If you
 
 > Modern block-based wrappers for UIAlertView and UIActionSheet.
 
+## Git
+
+We use Git as our source code management (SCM) system. We host
+repositories in GitHub. Here are the best practices of using
+Git and GitHub.
+
+### Commit Messages
+
+Please write good commit messages. Here's a model Git commit message:
+
+    Capitalized, short (50 chars or less) summary
+
+    More detailed explanatory text, if necessary.  Wrap it to about 72
+    characters or so.  In some contexts, the first line is treated as the
+    subject of an email and the rest of the text as the body.  The blank
+    line separating the summary from the body is critical (unless you omit
+    the body entirely); tools like rebase can get confused if you run the
+    two together.
+
+    Write your commit message in the imperative: "Fix bug" and not "Fixed bug"
+    or "Fixes bug."  This convention matches up with commit messages generated
+    by commands like git merge and git revert.
+
+    Further paragraphs come after blank lines.
+
+    - Bullet points are okay, too
+
+    - Typically a hyphen or asterisk is used for the bullet, preceded by a
+      single space, with blank lines in between, but conventions vary here
+
+    - Use a hanging indent
+
+Read [Tim Pope](http://tpo.pe/)'s post [*A Note About Git Commit
+Messages*](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+for more discussions.
+
+### Pivotal Tracker Post-Commit Hooks
+
+If commits are related to some Pivotal Tracker stories, use Pivotal
+Tracker post-commit hooks to link the commits to the particular stories.
+To do that, firstly, the GitHub repository of the project must enable Pivotal
+Tracker Service Hook in the settings. Secondly, add the story ID in the
+commit message using the format: '[#12345678]'. 
+
+To automatically finish a story by using a commit message, include
+"fixed", "completed", or "finished" in the square brackets in addition
+to the story ID. You may use different cases or forms of these verbs,
+such as "Fix" or "FIXES", and they may appear before or after the story
+ID. Note: For features, use of one of these keywords will put the story
+in the finished state. For chores, it will put the story in the accepted
+state.
+
+Here're some typical commit messages that include Pivotal Tracker
+post-commit hooks:
+
+* [#53928321] Create editorial page
+* [Fix #55789490] "$" sign appears in a wrong position
+* [Finish #53870315] Update icons for review buttons
 
