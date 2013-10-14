@@ -12,6 +12,7 @@ This is the first draft of the guide. We are eager for the feedback from our dev
     * [Xcode](#xcode)
 	* [CocoaPods](#cocoapods)
     * [Graphic Assets](#graphic-assets)
+    * [Groups Structure in Project Navigator](#groups-structure-in-project-navigator)
 * [Recommended Third-party Libraries](#recommended-third-party-libraries)
     * [Networking](#networking)
     * [JSON Parsing](#json-parsing)
@@ -27,8 +28,6 @@ This is the first draft of the guide. We are eager for the feedback from our dev
     * [Page Control](#page-control)
     * [UIAlertView and UIActionSheet (Block-based wrappers)](#uialertview-and-uiactionsheet-block-based-wrappers)
 * [Git](#git)
-    * [Commit Messages](#commit-messages)
-    * [Pivotal Tracker Post-Commit Hooks](#pivotal-tracker-post-commit-hooks)
 
 ## Why This Is Required
 
@@ -82,6 +81,33 @@ If a library doesn't have a `podspec`, you can create a `podspec` on your own an
 
 * Must include both @1x and @2x sizes.
 * Use JPEG format for large images, eg. background images.
+
+### Groups Structure in Project Navigator
+
+We recommend the project group structure as shown in the following
+screenshots.
+
+![Groups Structure in Project Navigator](http://d.pr/i/FXn3/5r31W9wA+)
+
+Assuming *MyApp* is the project name, we follow these conventions:
+
+* Only 4 groups at the top level: **MyApp**, **MyAppTests**, **Frameworks** and **Products**. 
+* `AppDelegate` should be in the root level of **MyApp**, not inside of any
+  of its subgroups.
+* **MyApp** has 8 subgroups:
+    * __Storyboards__: obviously storyboard files
+    * __Models__: all model classes, including Core Data classes and
+      `xcdatamodeld` file
+    * __Views__: all custom views, eg. custom table view cells
+    * __controllers__: all view controllers go here
+    * __Managers__: other controller-like classes that are not view controllers, for
+      example, a http client class that handles all the API calls
+    * __Categories__: all categories
+    * __Resources__: resource files, like images, custom fonts or
+      preloaded data
+    * __Supporting Files__: a default group with Xcode template
+* No group for external libraries, because we should use CocoaPods to
+  manage them.
 
 ## Recommended Third-party Libraries
 
@@ -207,8 +233,8 @@ Git and GitHub.
 * Use git-flow
 
     Gitflow is a Git workflow that Vincent Driessen introduced in his
-    post ["A successful Git branching
-    model"](http://nvie.com/posts/a-successful-git-branching-model/). In
+    post [*A successful Git branching
+    model*](http://nvie.com/posts/a-successful-git-branching-model/). In
     addition to that, he released
     [git-flow](http://github.com/nvie/gitflow), which is a collection of
     Git extensions to provide high-level repository operations for his
@@ -257,5 +283,5 @@ Git and GitHub.
     * [Fix #55789490] "$" sign appears in a wrong position
     * [Finish #53870315] Update icons for review buttons
 
-Also [Commit Often, Perfect Later, Publish Once: Git Best
-Practices](http://sethrobertson.github.com/GitBestPractices/) for more discussions.
+Also [*Commit Often, Perfect Later, Publish Once: Git Best
+Practices*](http://sethrobertson.github.com/GitBestPractices/) for more discussions.
