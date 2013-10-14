@@ -193,56 +193,69 @@ We use Git as our source code management (SCM) system. We host
 repositories in GitHub. Here are the best practices of using
 Git and GitHub.
 
-### Commit Messages
+* Commit early and commit often
 
-Please write good commit messages. Here's a model Git commit message:
+* Don't change published history
 
-    Capitalized, short (50 chars or less) summary
+    Particularly, don't rebase remote branch.
 
-    More detailed explanatory text, if necessary.  Wrap it to about 72
-    characters or so.  In some contexts, the first line is treated as the
-    subject of an email and the rest of the text as the body.  The blank
-    line separating the summary from the body is critical (unless you omit
-    the body entirely); tools like rebase can get confused if you run the
-    two together.
+    Once you git push your changes to the authoritative upstream
+    repository or otherwise make the commits or tags publicly visible,
+    you should ideally consider those commits etched in diamond for all
+    eternity.
 
-    Write your commit message in the imperative: "Fix bug" and not "Fixed bug"
-    or "Fixes bug."  This convention matches up with commit messages generated
-    by commands like git merge and git revert.
+* Use git-flow
 
-    Further paragraphs come after blank lines.
+    Gitflow is a Git workflow that Vincent Driessen introduced in his
+    post ["A successful Git branching
+    model"](http://nvie.com/posts/a-successful-git-branching-model/). In
+    addition to that, he released
+    [git-flow](http://github.com/nvie/gitflow), which is a collection of
+    Git extensions to provide high-level repository operations for his
+    branching model.
 
-    - Bullet points are okay, too
+* Write good commit messages
 
-    - Typically a hyphen or asterisk is used for the bullet, preceded by a
-      single space, with blank lines in between, but conventions vary here
+    Here's a model Git commit message:
 
-    - Use a hanging indent
+        Capitalized, short (50 chars or less) summary
 
-Read [Tim Pope](http://tpo.pe/)'s post [*A Note About Git Commit
-Messages*](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
-for more discussions.
+        More detailed explanatory text, if necessary.  Wrap it to about 72
+        characters or so.  In some contexts, the first line is treated as the
+        subject of an email and the rest of the text as the body.  The blank
+        line separating the summary from the body is critical (unless you omit
+        the body entirely); tools like rebase can get confused if you run the
+        two together.
 
-### Pivotal Tracker Post-Commit Hooks
+        Write your commit message in the imperative: "Fix bug" and not "Fixed bug"
+        or "Fixes bug."  This convention matches up with commit messages generated
+        by commands like git merge and git revert.
 
-If commits are related to some Pivotal Tracker stories, use Pivotal
-Tracker post-commit hooks to link the commits to the particular stories.
-To do that, firstly, the GitHub repository of the project must enable Pivotal
-Tracker Service Hook in the settings. Secondly, add the story ID in the
-commit message using the format: '[#12345678]'. 
+        Further paragraphs come after blank lines.
 
-To automatically finish a story by using a commit message, include
-"fixed", "completed", or "finished" in the square brackets in addition
-to the story ID. You may use different cases or forms of these verbs,
-such as "Fix" or "FIXES", and they may appear before or after the story
-ID. Note: For features, use of one of these keywords will put the story
-in the finished state. For chores, it will put the story in the accepted
-state.
+        - Bullet points are okay, too
 
-Here're some typical commit messages that include Pivotal Tracker
-post-commit hooks:
+        - Typically a hyphen or asterisk is used for the bullet, preceded by a
+          single space, with blank lines in between, but conventions vary here
 
-* [#53928321] Create editorial page
-* [Fix #55789490] "$" sign appears in a wrong position
-* [Finish #53870315] Update icons for review buttons
+        - Use a hanging indent
 
+    Read [Tim Pope](http://tpo.pe/)'s post [*A Note About Git Commit
+    Messages*](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+    for more discussions.
+
+* Integrate Pivotal Tracker
+
+    If commits are related to some Pivotal Tracker stories, use Pivotal
+    Tracker post-commit hooks to link the commits to the particular
+    stories.
+
+    Here're some typical commit messages that include Pivotal Tracker
+    post-commit hooks:
+
+    * [#53928321] Create editorial page
+    * [Fix #55789490] "$" sign appears in a wrong position
+    * [Finish #53870315] Update icons for review buttons
+
+Also [Commit Often, Perfect Later, Publish Once: Git Best
+Practices](http://sethrobertson.github.com/GitBestPractices/) for more discussions.
