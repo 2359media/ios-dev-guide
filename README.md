@@ -118,7 +118,9 @@ No warning is allowed in release products. Treat warnings as errors.
 
 ### Staging vs Production vs App Store
 
-Use [Xcode Scheme](scheme), [Build Configuration](build-config) and [Build Settings](settings) to manage different builds, like staging build, production build or App Store build.
+Use [Xcode Scheme](scheme), [Build Configuration](build-config) and
+[Build Settings](settings) to manage different builds, like staging
+build, production build or App Store build.
 
 1.  Create build configurations for each build.
 
@@ -133,40 +135,59 @@ Use [Xcode Scheme](scheme), [Build Configuration](build-config) and [Build Setti
 
 2.  Add User-Defined Build Settings.
 
-	Typically, we will create User-Defined Settings for Bundle ID, app icon names, and Facebook App ID. So we will be able to set different Bundle ID, icon nams or Facebook App ID for different Build Configurations.
+    Typically, we will create User-Defined Settings for Bundle ID, app
+    icon names, and Facebook App ID. So we will be able to set different
+    Bundle ID, icon nams or Facebook App ID for different Build
+    Configurations.
 	
 	![Add User-Defined Settings](http://d.pr/i/Qnw9/XW0PMDHF+)
 	
-	These settings will be used in Info.plist. If the User-Defined Setting is `FACEBOOK_APP_ID`, you use it in Info.plist by `${FACEBOOK_APP_ID}`.
+    These settings will be used in Info.plist. If the User-Defined
+    Setting is `FACEBOOK_APP_ID`, you use it in Info.plist by
+    `${FACEBOOK_APP_ID}`.
 	
 	![Use User-Defined Settings in Info.plist](http://d.pr/i/ckeH/96uoJ9Ov+)
 	
 3.	Create Schemes with Build Configurations.
 
-	Each build needs one Scheme, so we will create 3 Schemes: **MyAppStaging**, **MyAppProduction** and **MyAppAppStore**, for staging build, production build and App Store build respectively. Note that these schemes should be marked "Shared", so that they are added in the Git repository.
+    Each build needs one Scheme, so we will create 3 Schemes:
+    **MyAppStaging**, **MyAppProduction** and **MyAppAppStore**, for
+    staging build, production build and App Store build respectively.
+    Note that these schemes should be marked "Shared", so that they are
+    added in the Git repository.
 	
 	![3 Schemes](http://d.pr/i/nrhZ/5dfwYlsf+)
 	
-	**MyAppStaging** Scheme uses **Debug Staging** and **Release Staging**.
+    **MyAppStaging** Scheme uses **Debug Staging** and **Release
+    Staging**.
 	
 	![MyAppStaging Scheme](http://d.pr/i/cxrL/4ETSVjbO+)
 	
-	 Similarly, **MyAppProduction** Scheme uses **Debug** and **Release**, and **MyAppAppStore** Scheme uses only **App Store**. It's summarized in the followed table.
+     Similarly, **MyAppProduction** Scheme uses **Debug** and
+     **Release**, and **MyAppAppStore** Scheme uses only **App Store**.
+     It's summarized in the followed table.
 	
 	![Schemes with Build Configurations](http://d.pr/i/9aoY/42ZCSw5m+)
 	
-Now that we created schemes, we can, for example, switch to Staging build by easily selecting **MyAppStaging** scheme. Bundle ID, Facebook App ID and App icon will be changed automatically.
+Now that we created schemes, we can, for example, switch to Staging
+build by easily selecting **MyAppStaging** scheme. Bundle ID, Facebook
+App ID and App icon will be changed automatically.
 
-In order to change the Base URL of API server for staging or production, we can implement a function that returns the correct URL based on Bundle ID. For example, the following function returns the staging Base URL if the Bundle ID has a prefix of "com.2359media".
+In order to change the Base URL of API server for staging or production,
+we can implement a function that returns the correct URL based on Bundle
+ID. For example, the following function returns the staging Base URL if
+the Bundle ID has a prefix of `com.2359media`.
 
-		static inline NSString * MABaseURL()
-		{
-		    if ([[[NSBundle mainBundle] bundleIdentifier] hasPrefix:@"com.2359media"]) {
-		        return @"http://myapp-staging.2359media.net";
-		    } else {
-		        return @"http://myapp.2359media.net";
-		    }
-		}
+```objective-c
+static inline NSString * MABaseURL()
+{
+    if ([[[NSBundle mainBundle] bundleIdentifier] hasPrefix:@"com.2359media"]) {
+        return @"http://myapp-staging.2359media.net";
+    } else {
+        return @"http://myapp.2359media.net";
+    }
+}
+```
 
 [scheme]: https://developer.apple.com/library/ios/featuredarticles/XcodeConcepts/Concept-Schemes.html#//apple_ref/doc/uid/TP40009328-CH8-SW1
 [build-config]: https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/Articles/BasingBuildConfigurationsonConfigurationFiles.html
