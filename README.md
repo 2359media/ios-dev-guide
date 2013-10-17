@@ -13,6 +13,8 @@ This is the first draft of the guide. We are eager for the feedback from our dev
 	* [CocoaPods](#cocoapods)
     * [Graphic Assets](#graphic-assets)
     * [Groups Structure in Project Navigator](#groups-structure-in-project-navigator)
+    * [Warnings](#warnings)
+    * [Staging vs Production vs App Store](#staging-vs-production-vs-app-store)
 * [Recommended Third-party Libraries](#recommended-third-party-libraries)
     * [Networking](#networking)
     * [JSON Parsing](#json-parsing)
@@ -79,6 +81,7 @@ If a library doesn't have a `podspec`, you can create a `podspec` on your own an
 
 ### Graphic Assets
 
+* Use [Asset Catalogs](https://developer.apple.com/library/ios/recipes/xcode_help-image_catalog-1.0/Recipe.html) in Xcode 5.
 * Must include both @1x and @2x sizes.
 * Use JPEG format for large images, eg. background images.
 
@@ -108,6 +111,66 @@ Assuming *MyApp* is the project name, we follow these conventions:
     * __Supporting Files__: a default group with Xcode template
 * No group for external libraries, because we should use CocoaPods to
   manage them.
+
+### Warnings
+
+No warning is allowed in release products. Treat warnings as errors.
+
+### Staging vs Production vs App Store
+
+Use [Xcode Scheme](scheme), [Build Configuration](build-config) and [Build Settings](settings) to manage different builds, like staging build, production build or App Store build.
+
+1.  Create build configurations for each build.
+
+    Both staging and production builds require Debug and Release build
+    configuration, while App Store doesn't need Debug configuration,
+    only Release.  As a result, we usually create 5 build
+    configurations: **Debug**, **Debug Staging**, **Release**,
+    **Release Staging** and **App Store**. Note that **App Store** is
+    created by duplicating **Release** configuration.
+
+    ![Create Build Configurations](http://d.pr/i/p4Xj/2WF2w3P1+)
+
+2.  Add User-Defined Build Settings.
+
+	Typically, we will create User-Defined Settings for Bundle ID, app icon names, and Facebook App ID. So we will be able to set different Bundle ID, icon nams or Facebook App ID for different Build Configurations.
+	
+	![Add User-Defined Settings](http://d.pr/i/Qnw9/XW0PMDHF+)
+	
+	These settings will be used in Info.plist. If the User-Defined Setting is `FACEBOOK_APP_ID`, you use it in Info.plist by `${FACEBOOK_APP_ID}`.
+	
+	![Use User-Defined Settings in Info.plist](http://d.pr/i/ckeH/96uoJ9Ov+)
+	
+3.	Create Schemes with Build Configurations.
+
+	Each build needs one Scheme, so we will create 3 Schemes: **MyAppStaging**, **MyAppProduction** and **MyAppAppStore**, for staging build, production build and App Store build respectively. Note that these schemes should be marked "Shared", so that they are added in the Git repository.
+	
+	![3 Schemes](http://d.pr/i/nrhZ/5dfwYlsf+)
+	
+	**MyAppStaging** Scheme uses **Debug Staging** and **Release Staging**.
+	
+	![MyAppStaging Scheme](http://d.pr/i/cxrL/4ETSVjbO+)
+	
+	 Similarly, **MyAppProduction** Scheme uses **Debug** and **Release**, and **MyAppAppStore** Scheme uses only **App Store**. It's summarized in the followed table.
+	
+	![Schemes with Build Configurations](http://d.pr/i/9aoY/42ZCSw5m+)
+	
+Now that we created schemes, we can, for example, switch to Staging build by easily selecting **MyAppStaging** scheme. Bundle ID, Facebook App ID and App icon will be changed automatically.
+
+In order to change the Base URL of API server for staging or production, we can implement a function that returns the correct URL based on Bundle ID. For example, the following function returns the staging Base URL if the Bundle ID has a prefix of "com.2359media".
+
+		static inline NSString * MABaseURL()
+		{
+		    if ([[[NSBundle mainBundle] bundleIdentifier] hasPrefix:@"com.2359media"]) {
+		        return @"http://myapp-staging.2359media.net";
+		    } else {
+		        return @"http://myapp.2359media.net";
+		    }
+		}
+
+[scheme]: https://developer.apple.com/library/ios/featuredarticles/XcodeConcepts/Concept-Schemes.html#//apple_ref/doc/uid/TP40009328-CH8-SW1
+[build-config]: https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/Articles/BasingBuildConfigurationsonConfigurationFiles.html
+[settings]: https://developer.apple.com/library/ios/featuredarticles/XcodeConcepts/Concept-Build_Settings.html#//apple_ref/doc/uid/TP40009328-CH6-SW1
 
 ## Recommended Third-party Libraries
 
