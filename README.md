@@ -1,8 +1,12 @@
 # iOS Development Guide
 
-This development guide outlines the standards and the best practices that are adopted by the iOS team at 2359 Media.
+This development guide outlines the standards and the best practices
+that are adopted by the iOS team at 2359 Media.
 
-This is the first draft of the guide. We are eager for the feedback from our developers. Please feel free to create [issues](https://github.com/2359media/ios-dev-guide/issues) for any suggestions.
+This is the first draft of the guide. We are eager for the feedback from
+our developers. Please feel free to create
+[issues](https://github.com/2359media/ios-dev-guide/issues) for any
+suggestions.
 
 ## Table of Contents
 
@@ -33,48 +37,77 @@ This is the first draft of the guide. We are eager for the feedback from our dev
 
 ## Why This Is Required
 
-This guide should be considered as rules for first timers, but guidelines for experienced developers.
+This guide should be considered as rules for first timers, but
+guidelines for experienced developers.
 
 ## Objective-C Coding Conventions
 
-Please refer to [2359media/objective-c-conventions](https://github.com/2359media/objective-c-conventions)
+Follow these two style guides:
+
+* [NYTimes Objective-C Style Guide](https://github.com/NYTimes/objective-c-style-guide)
+* [2359media fork of GitHub Objective-C Conventions](https://github.com/2359media/objective-c-conventions)
 
 ## Project Technical Conventions
 
 ### Xcode
 
-Always use the most recent release version of Xcode. At the time of writing, the lastest version is Xcode 5. You can download it from [Mac App Store](https://itunes.apple.com/en/app/xcode/id497799835?mt=12), or at [Apple developer center](https://developer.apple.com/downloads). 
+Always use the most recent release version of Xcode. At the time of
+writing, the lastest version is Xcode 5. You can download it from [Mac
+App Store](https://itunes.apple.com/en/app/xcode/id497799835?mt=12) or
+at [Apple developer center](https://developer.apple.com/downloads). 
 
-However, if a project still requires a base SDK of an old version of iOS, it'd handy to keep the lastest version of Xcode that supports the SDK. For example, during the transition from iOS 6 to iOS 7, some legacy projects might not be ready to upgrade to iOS 7 SDK, because it requires a lot of effort to do so. In that case, we still need to keep Xcode 4.6.3 (and iOS 6 SDK) for these projects.
+However, if a project still requires a base SDK of an old version of
+iOS, it'd handy to keep the lastest version of Xcode that supports the
+old SDK. For example, during the transition from iOS 6 to iOS 7, some legacy
+projects might not be ready to upgrade to iOS 7 SDK, because it would require
+a lot of effort to do so. In that case, we still need to keep Xcode
+4.6.3 (and iOS 6 SDK) for these projects.
 
 * Add old SDKs in new Xcode
 
-	Each version of Xcode comes with only one SDK. For example, Xcode 5 comes with iOS 7.0 SDK while Xcode 4.6 comes with iOS 6.1 SDK. However, it's possible to add iOS 6.1 SDK from Xcode 4.6 to Xcode 5. To do so, you simply copy the iOS 6.1 SDK folder inside Xcode 4.6 app bundle to the same position in Xcode 5 app bundle. Assuming you rename Xcode 4.6 app bundle to Xcode4.app, this is the command to do that:
+    Each version of Xcode comes with only one SDK. For example, Xcode 5
+    comes with iOS 7.0 SDK while Xcode 4.6 comes with iOS 6.1 SDK.
+    It's however possible to add iOS 6.1 SDK from Xcode 4.6 to Xcode 5.
+    To do that, you simply copy the iOS 6.1 SDK folder inside Xcode 4.6
+    app bundle to the same position in Xcode 5 app bundle. Assuming you
+    rename Xcode 4.6 app bundle to `Xcode4.app`, this is the command to do
+    that:
 		
 		cp /Applications/Xcode4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs
 	
-	If you prefer symbolic link instead of copying the entire folder, use this command:
+    If you prefer symbolic link instead of copying the entire folder,
+    use this command:
 	
 	 	ln -s /Applications/Xcode4.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs
 
 ### CocoaPods
 
-Use [CocoaPods](http://cocoapods.org) to manage libraries. We don't recommend to copy library source files into the project. There is a repository of CocoaPods specifications (`podspec`): [CocoaPods/Specs](https://github.com/CocoaPods/Specs), which contains most of the common libraries. To add a library dependency, simply specify the name and the version.
+Use [CocoaPods](http://cocoapods.org) to manage libraries. Don't copy
+library source files into the project.
 
-* Library with `podspec` in [CocoaPods/Specs](https://github.com/CocoaPods/Specs)
+There is a repository of CocoaPods specifications (`podspec`):
+[CocoaPods/Specs](https://github.com/CocoaPods/Specs), which contains
+most of the common libraries. To add a library dependency, specify the
+name and the version.
+
+* Library with `podspec` in
+  [CocoaPods/Specs](https://github.com/CocoaPods/Specs)
 
 		pod 'AFNetworking', '2.0.0-RC3'
 
-You can also specify a libaray depedency that is outside of CocosPods/Sepcs.
+You can also specify a library that is outside of CocoaPods/Specs.
 
-* Library with `podspec` in the root of the repository. Either local repositories or remote repositories.
+* Library with `podspec` in the root of the repository. Either local
+  repositories or remote repositories.
 
 		pod 'AFNetworking', :path => '~/Documents/AFNetworking'
 		pod 'AFNetworking', :git => 'https://github.com/AFNetworking/AFNetworking.git'
 
-If a library doesn't have a `podspec`, you can create a `podspec` on your own and host it in somewhere like [gist.github.com](), or even in a local folder.
+If a library doesn't have a `podspec`, you can create a `podspec` on
+your own and host it in somewhere like [gist.github.com](), or even in a
+local folder.
 
-* Library without `podspec`
+* Library without `podspec`. Create `podspec` on you own.
 
 		pod 'JSONKit', :podspec => 'https://raw.github.com/gist/1346394/1d26570f68ca27377a27430c65841a0880395d72/JSONKit.podspec'
 		pod 'JSONKit', :path => '~/Documents/JSONKit.podspec'
@@ -83,7 +116,7 @@ If a library doesn't have a `podspec`, you can create a `podspec` on your own an
 
 * Use [Asset Catalogs](https://developer.apple.com/library/ios/recipes/xcode_help-image_catalog-1.0/Recipe.html) in Xcode 5.
 * Must include both @1x and @2x sizes.
-* Use JPEG format for large images, eg. background images.
+* Use JPEG format for large images, e.g. background images.
 
 ### Groups Structure in Project Navigator
 
@@ -94,27 +127,28 @@ screenshots.
 
 Assuming *MyApp* is the project name, we follow these conventions:
 
-* Only 4 groups at the top level: **MyApp**, **MyAppTests**, **Frameworks** and **Products**. 
-* `AppDelegate` should be in the root level of **MyApp**, not inside of any
-  of its subgroups.
+* Only 4 groups at the top level: **MyApp**, **MyAppTests**,
+  **Frameworks** and **Products**. 
+* `AppDelegate` should be in the root level of **MyApp**, not inside 
+  any of its subgroups.
 * **MyApp** has 8 subgroups:
     * __Storyboards__: obviously storyboard files
     * __Models__: all model classes, including Core Data classes and
       `xcdatamodeld` file
-    * __Views__: all custom views, eg. custom table view cells
+    * __Views__: all custom views, e.g. custom table view cells
     * __controllers__: all view controllers go here
-    * __Managers__: other controller-like classes that are not view controllers, for
-      example, a http client class that handles all the API calls
+    * __Managers__: other controller-like classes that are not view
+      controllers, for example, a http client class that handles all the
+      API calls
     * __Categories__: all categories
     * __Resources__: resource files, like images, custom fonts or
       preloaded data
     * __Supporting Files__: a default group with Xcode template
-* No group for external libraries, because we should use CocoaPods to
-  manage them.
+* No group for external libraries. Use CocoaPods to manage them.  
 
 ### Warnings
 
-No warning is allowed in release products. Treat warnings as errors.
+No warning is allowed in release builds. Treat warnings as errors.
 
 ### Staging vs Production vs App Store
 
@@ -122,28 +156,28 @@ Use [Xcode Scheme](scheme), [Build Configuration](build-config) and
 [Build Settings](settings) to manage different builds, like staging
 build, production build or App Store build.
 
-1.  Create build configurations for each build.
+1.  Create Build Configurations.
 
-    Both staging and production builds require Debug and Release build
-    configuration, while App Store doesn't need Debug configuration,
-    only Release.  As a result, we usually create 5 build
-    configurations: **Debug**, **Debug Staging**, **Release**,
-    **Release Staging** and **App Store**. Note that **App Store** is
-    created by duplicating **Release** configuration.
+    Both staging and production builds require Debug and Release
+    configuration, while App Store only need Release configuration. As a
+    result, we usually create 5 build configurations: **Debug**, **Debug
+    Staging**, **Release**, **Release Staging** and **App Store**. Note
+    that **App Store** is created by duplicating **Release**
+    configuration.
 
-    ![Create Build Configurations](http://d.pr/i/p4Xj/2WF2w3P1+)
+    ![Create Build Configurations](http://d.pr/i/FvLJ/2w0NKNJD+)
 
 2.  Add User-Defined Build Settings.
 
     Typically, we will create User-Defined Settings for Bundle ID, app
-    icon names, and Facebook App ID. So we will be able to set different
-    Bundle ID, icon nams or Facebook App ID for different Build
+    icon names, Facebook App ID, etc. So we will be able to set different
+    Bundle ID, icon names or Facebook App ID for different Build
     Configurations.
 	
 	![Add User-Defined Settings](http://d.pr/i/Qnw9/XW0PMDHF+)
 	
     These settings will be used in Info.plist. If the User-Defined
-    Setting is `FACEBOOK_APP_ID`, you use it in Info.plist by
+    Setting is `FACEBOOK_APP_ID`, you use it in Info.plist with
     `${FACEBOOK_APP_ID}`.
 	
 	![Use User-Defined Settings in Info.plist](http://d.pr/i/ckeH/96uoJ9Ov+)
@@ -153,8 +187,8 @@ build, production build or App Store build.
     Each build needs one Scheme, so we will create 3 Schemes:
     **MyAppStaging**, **MyAppProduction** and **MyAppAppStore**, for
     staging build, production build and App Store build respectively.
-    Note that these schemes should be marked "Shared", so that they are
-    added in the Git repository.
+    Note that these schemes should be marked "Shared", so that they will
+    be added in the Git repository.
 	
 	![3 Schemes](http://d.pr/i/nrhZ/5dfwYlsf+)
 	
@@ -167,11 +201,11 @@ build, production build or App Store build.
      **Release**, and **MyAppAppStore** Scheme uses only **App Store**.
      It's summarized in the followed table.
 	
-	![Schemes with Build Configurations](http://d.pr/i/9aoY/42ZCSw5m+)
+    <img src="http://d.pr/i/9aoY/42ZCSw5m+" alt="Schemes with Build Configurations" style="width: 400px;"/>
 	
-Now that we created schemes, we can, for example, switch to Staging
-build by easily selecting **MyAppStaging** scheme. Bundle ID, Facebook
-App ID and App icon will be changed automatically.
+After we have Schemes, we can, for example, switch to staging
+build by easily selecting **MyAppStaging** Scheme. Bundle ID, Facebook
+App ID and app icon will be changed automatically.
 
 In order to change the Base URL of API server for staging or production,
 we can implement a function that returns the correct URL based on Bundle
@@ -179,7 +213,7 @@ ID. For example, the following function returns the staging Base URL if
 the Bundle ID has a prefix of `com.2359media`.
 
 ```objective-c
-static inline NSString * MABaseURL()
+NSString * MABaseURL()
 {
     if ([[[NSBundle mainBundle] bundleIdentifier] hasPrefix:@"com.2359media"]) {
         return @"http://myapp-staging.2359media.net";
@@ -303,18 +337,16 @@ We use Git as our source code management (SCM) system. We host
 repositories in GitHub. Here are the best practices of using
 Git and GitHub.
 
-* Commit early and commit often
+* Commit early and commit often.
 
-* Don't change published history
+* Don't change published history. Particularly, don't rebase remote branch.
 
-    Particularly, don't rebase remote branch.
-
-    Once you git push your changes to the authoritative upstream
+    > Once you git push your changes to the authoritative upstream
     repository or otherwise make the commits or tags publicly visible,
     you should ideally consider those commits etched in diamond for all
     eternity.
 
-* Use git-flow
+* Use git-flow.
 
     Gitflow is a Git workflow that Vincent Driessen introduced in his
     post [*A successful Git branching
@@ -324,7 +356,7 @@ Git and GitHub.
     Git extensions to provide high-level repository operations for his
     branching model.
 
-* Write good commit messages
+* Write good commit messages.
 
     Here's a model Git commit message:
 
@@ -354,11 +386,13 @@ Git and GitHub.
     Messages*](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
     for more discussions.
 
-* Integrate Pivotal Tracker
+* Integrate Pivotal Tracker.
 
-    If commits are related to some Pivotal Tracker stories, use Pivotal
-    Tracker post-commit hooks to link the commits to the particular
-    stories.
+    If a commit has related Pivotal Tracker stories, use Pivotal Tracker
+    post-commit hooks to link the commits to the particular stories. For
+    all the details, including commit syntax as well as instructions on
+    how to enable SCM integration, please see the [API help
+    page](https://www.pivotaltracker.com/help/api?version=v5#Tracker_Updates_in_SCM_Post_Commit_Hooks).
 
     Here're some typical commit messages that include Pivotal Tracker
     post-commit hooks:
@@ -367,5 +401,6 @@ Git and GitHub.
     * [Fix #55789490] "$" sign appears in a wrong position
     * [Finish #53870315] Update icons for review buttons
 
-Also [*Commit Often, Perfect Later, Publish Once: Git Best
-Practices*](http://sethrobertson.github.com/GitBestPractices/) for more discussions.
+Also see [*Commit Often, Perfect Later, Publish Once: Git Best
+Practices*](http://sethrobertson.github.com/GitBestPractices/) for more
+discussions.
