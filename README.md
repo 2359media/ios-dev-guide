@@ -213,7 +213,7 @@ ID. For example, the following function returns the staging Base URL if
 the Bundle ID has a prefix of `com.2359media`.
 
 ```objective-c
-NSString * MABaseURL()
+NSString * MDABaseURL()
 {
     if ([[[NSBundle mainBundle] bundleIdentifier] hasPrefix:@"com.2359media"]) {
         return @"http://myapp-staging.2359media.net";
@@ -226,6 +226,24 @@ NSString * MABaseURL()
 [scheme]: https://developer.apple.com/library/ios/featuredarticles/XcodeConcepts/Concept-Schemes.html#//apple_ref/doc/uid/TP40009328-CH8-SW1
 [build-config]: https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/Articles/BasingBuildConfigurationsonConfigurationFiles.html
 [settings]: https://developer.apple.com/library/ios/featuredarticles/XcodeConcepts/Concept-Build_Settings.html#//apple_ref/doc/uid/TP40009328-CH6-SW1
+
+### Instruments
+
+Use Instruments to profile your app. For example, locating memory issues, analyzing CPU usage, mesauring I/O acitivity or graphics peformance.
+
+Resources for learning Instruments:
+
+- [Instruments User Guide](https://developer.apple.com/library/ios/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/InstrumentsQuickStart/InstrumentsQuickStart.html)
+- [WWDC 2010 Advanced Memory Analysis with Instruments](https://developer.apple.com/videos/wwdc/2010/?id=311)
+- [WWDC 2010 Advanced Performance Analysis with Instruments](https://developer.apple.com/videos/wwdc/2010/?id=309)
+- [WWDC 2011 iOS Performance and Power Optimization with Instruments](https://developer.apple.com/videos/wwdc/2011/?id=312)
+- [WWDC 2011 iOS Performance in Depth](https://deimos.apple.com/WebObjects/Core.woa/BrowsePrivately/adc.apple.com.8266478284.08266478290.8365294559?i=1110158471)
+- [WWDC 2012 Learning Instruments](https://developer.apple.com/videos/wwdc/2012/?id=409)
+- [WWDC 2012 iOS App Performance: Responsiveness](https://developer.apple.com/videos/wwdc/2012/?id=235)
+- [WWDC 2012 iOS App Performance: Graphics and Animations](https://developer.apple.com/videos/wwdc/2012/?id=238)
+- [WWDC 2012 iOS App Performance: Memory](https://developer.apple.com/videos/wwdc/2012/?id=242)
+- [WWDC 2013 Fixing Memory Issues](https://developer.apple.com/wwdc/videos/?id=410)
+- [WWDC 2013 Core Data Performance Optimization and Debugging](https://developer.apple.com/wwdc/videos/?id=211)
 
 ## Recommended Third-party Libraries
 
