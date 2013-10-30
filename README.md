@@ -20,6 +20,7 @@ suggestions.
     * [Warnings](#warnings)
     * [Staging vs Production vs App Store](#staging-vs-production-vs-app-store)
     * [Instruments](#instruments)
+    * [Unit Testing](#unit-testing)
 * [Recommended Third-party Libraries](#recommended-third-party-libraries)
     * [Networking](#networking)
     * [JSON Parsing](#json-parsing)
@@ -218,7 +219,8 @@ NSString * MDABaseURL()
 {
     if ([[[NSBundle mainBundle] bundleIdentifier] hasPrefix:@"com.2359media"]) {
         return @"http://myapp-staging.2359media.net";
-    } else {
+    }
+    else {
         return @"http://myapp.2359media.net";
     }
 }
@@ -245,6 +247,21 @@ Resources for learning Instruments:
 - [WWDC 2012 iOS App Performance: Memory](https://developer.apple.com/videos/wwdc/2012/?id=242)
 - [WWDC 2013 Fixing Memory Issues](https://developer.apple.com/wwdc/videos/?id=410)
 - [WWDC 2013 Core Data Performance Optimization and Debugging](https://developer.apple.com/wwdc/videos/?id=211)
+
+### Unit Testing
+
+Create unit tests for critical code. Especially, test the following
+cases:
+
+- Complex code that have many edge cases to consider.
+  Write unit tests to cover these edge cases.
+- Whenever a bug is found, write a unit test to cover it before fixing
+  the bug.
+
+Resources for getting started with unit testing in Xcode 5:
+
+- [Unit Test Your App](https://developer.apple.com/library/ios/documentation/ToolsLanguages/Conceptual/Xcode_Overview/UnitTestYourApp/UnitTestYourApp.html)
+- [WWDC 2013 Testing in Xcode 5](https://developer.apple.com/wwdc/videos/?id=409)
 
 ## Recommended Third-party Libraries
 
