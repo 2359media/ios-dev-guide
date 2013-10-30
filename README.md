@@ -19,6 +19,7 @@ suggestions.
     * [Groups Structure in Project Navigator](#groups-structure-in-project-navigator)
     * [Warnings](#warnings)
     * [Staging vs Production vs App Store](#staging-vs-production-vs-app-store)
+    * [Instruments](#instruments)
 * [Recommended Third-party Libraries](#recommended-third-party-libraries)
     * [Networking](#networking)
     * [JSON Parsing](#json-parsing)
