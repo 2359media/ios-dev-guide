@@ -275,9 +275,9 @@ It's quite often that we need to support older iOS versions. There are few ways 
 But, the most obvious way is by checking the Foundation framework version number:
 
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-    // Handle the case for iOS 6.1 or earlier
+        // Handle the case for iOS 6.1 or earlier
     } else {
-    // Handle the case for iOS 7 or later
+        // Handle the case for iOS 7 or later
     }
 
 Also, make sure to read [Supporting iOS 6](https://developer.apple.com/library/ios/documentation/userexperience/conceptual/transitionguide/SupportingEarlieriOS.html) in iOS 7 UI Transition Guide. 
