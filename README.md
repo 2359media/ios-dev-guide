@@ -21,6 +21,7 @@ suggestions.
     * [Staging vs Production vs App Store](#staging-vs-production-vs-app-store)
     * [Instruments](#instruments)
     * [Unit Testing](#unit-testing)
+    * [SDK Compatibility](#sdk-compatibility)
 * [Recommended Third-party Libraries](#recommended-third-party-libraries)
     * [Networking](#networking)
     * [JSON Parsing](#json-parsing)
@@ -262,6 +263,24 @@ Resources for getting started with unit testing in Xcode 5:
 
 - [Unit Test Your App](https://developer.apple.com/library/ios/documentation/ToolsLanguages/Conceptual/Xcode_Overview/UnitTestYourApp/UnitTestYourApp.html)
 - [WWDC 2013 Testing in Xcode 5](https://developer.apple.com/wwdc/videos/?id=409)
+
+### SDK Compatibility
+
+It's quite often that we need to support older iOS versions. There are few ways to do this: 
+
+- From Apple Documentation's [SDK Compatibility Guide](https://developer.apple.com/library/ios/documentation/DeveloperTools/Conceptual/cross_development/Introduction/Introduction.html).
+
+- From a more simplified article in Ray Wenderlich's [Supporting Multiple iOS Versions and Devices](http://www.raywenderlich.com/42591/supporting-multiple-ios-versions-and-devices).
+
+But, the most obvious way is by checking the Foundation framework version number:
+
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+    // Handle the case for iOS 6.1 or earlier
+    } else {
+    // Handle the case for iOS 7 or later
+    }
+
+Also, make sure to read [Supporting iOS 6](https://developer.apple.com/library/ios/documentation/userexperience/conceptual/transitionguide/SupportingEarlieriOS.html) in iOS 7 UI Transition Guide. 
 
 ## Recommended Third-party Libraries
 
