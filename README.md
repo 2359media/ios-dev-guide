@@ -37,6 +37,7 @@ suggestions.
     * [Page Control](#page-control)
     * [UIAlertView and UIActionSheet (Block-based wrappers)](#uialertview-and-uiactionsheet-block-based-wrappers)
 * [Git](#git)
+* [References](#references)
 
 ## Why This Is Required
 
@@ -459,3 +460,26 @@ Git and GitHub.
 Also see [*Commit Often, Perfect Later, Publish Once: Git Best
 Practices*](http://sethrobertson.github.com/GitBestPractices/) for more
 discussions.
+
+## References
+
+- [iOS Developer Library](https://developer.apple.com/library/ios) is
+where you can find all the [programming guides][guides], [class
+references][references], [sample code][code], [videos][videos], etc.
+
+- [NSBlog](https://mikeash.com/pyblog/) by [Mike Ash](https://mikeash.com). 
+
+- [objc.io](http://www.objc.io/) by [Chris Eidhof](http://eidhof.nl), [Florian Kugler](http://floriankugler.com) and [Daniel Eggert](https://twitter.com/danielboedewadt).
+
+- [NSHipster](http://nshipster.com) by [Mattt Thompson](http://mattt.me/).
+
+@phatle collects a huge number of references in his [iOS Topics and
+References][t&r], and they are grouped by topics for easily looking up.
+It's a handy document for developers who just start out iOS development.
+
+[guides]: https://developer.apple.com/library/ios/navigation/#section=Resource%20Types&topic=Guides
+[references]: https://developer.apple.com/library/ios/navigation/#section=Resource%20Types&topic=Reference
+[code]: https://developer.apple.com/library/ios/navigation/#section=Resource%20Types&topic=Sample%20Code
+[videos]: https://developer.apple.com/library/ios/navigation/#section=Resource%20Types&topic=Video
+[t&r]: https://github.com/2359media/ios-dev-guide/blob/master/iOS%20Topics%20and%20References.md
+
