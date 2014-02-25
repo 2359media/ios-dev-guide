@@ -464,10 +464,10 @@ discussions.
 
 ### Pull Request
 
-We use [Pull Requests](using-pr) to initiate code review and genenral
+We use [Pull Requests][using-pr] to initiate code review and genenral
 discussion about changes before being merged into a main branch.
 
-We follow the [maintainer/contributors workflow](pr-workflow). The tech
+We follow the [maintainer/contributors workflow][pr-workflow]. The tech
 lead of each project is the maitainer, who will review the pull requests
 submitted by the contributors before merging them into the main branch.
 The reset of developers in the team are the contributors, who will
