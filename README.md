@@ -461,6 +461,20 @@ Also see [*Commit Often, Perfect Later, Publish Once: Git Best
 Practices*](http://sethrobertson.github.com/GitBestPractices/) for more
 discussions.
 
+### Pull Request
+
+We use [Pull Requests](using-pr) to initiate code review and genenral
+discussion about changes before being merged into a main branch.
+
+We follow the [maintainer/contributors workflow](pr-workflow). The tech
+lead of each project is the maitainer, who will review the pull requests
+submitted by the contributors before merging them into the main branch.
+The reset of developers in the team are the contributors, who will
+submits their changes through pull requests.
+
+[using-pr]: https://help.github.com/articles/using-pull-requests
+[pr-workflow]: https://github.com/2359media/ios-dev-guide/blob/master/Pull%20Request%20Workflow.md
+
 ## References
 
 - [iOS Developer Library](https://developer.apple.com/library/ios) is
