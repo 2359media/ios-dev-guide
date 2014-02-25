@@ -37,6 +37,7 @@ suggestions.
     * [Page Control](#page-control)
     * [UIAlertView and UIActionSheet (Block-based wrappers)](#uialertview-and-uiactionsheet-block-based-wrappers)
 * [Git](#git)
+    * [Pull Request](#pull-request)
 * [References](#references)
 
 ## Why This Is Required
