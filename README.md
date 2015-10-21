@@ -263,7 +263,7 @@ cases:
 
 Resources for getting started with unit testing in Xcode 5:
 
-- [Unit Test Your App](https://developer.apple.com/library/ios/documentation/ToolsLanguages/Conceptual/Xcode_Overview/UnitTestYourApp/UnitTestYourApp.html)
+- [Unit Test Your App](https://developer.apple.com/library/ios/documentation/DeveloperTools/Conceptual/testing_with_xcode/Testing_with_Xcode.pdf)
 - [WWDC 2013 Testing in Xcode 5](https://developer.apple.com/wwdc/videos/?id=409)
 
 ### SDK Compatibility
