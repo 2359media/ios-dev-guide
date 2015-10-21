@@ -239,7 +239,7 @@ Use Instruments to profile your app. For example, locating memory issues, analyz
 
 Resources for learning Instruments:
 
-- [Instruments User Guide](https://developer.apple.com/library/ios/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/InstrumentsQuickStart/InstrumentsQuickStart.html)
+- [Instruments User Guide](https://developer.apple.com/library/prerelease/ios/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/)
 - [WWDC 2010 Advanced Memory Analysis with Instruments](https://developer.apple.com/videos/wwdc/2010/?id=311)
 - [WWDC 2010 Advanced Performance Analysis with Instruments](https://developer.apple.com/videos/wwdc/2010/?id=309)
 - [WWDC 2011 iOS Performance and Power Optimization with Instruments](https://developer.apple.com/videos/wwdc/2011/?id=312)
