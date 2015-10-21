@@ -239,7 +239,7 @@ Use Instruments to profile your app. For example, locating memory issues, analyz
 
 Resources for learning Instruments:
 
-- [Instruments User Guide](https://developer.apple.com/library/ios/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/InstrumentsQuickStart/InstrumentsQuickStart.html)
+- [Instruments User Guide](https://developer.apple.com/library/prerelease/ios/documentation/DeveloperTools/Conceptual/InstrumentsUserGuide/)
 - [WWDC 2010 Advanced Memory Analysis with Instruments](https://developer.apple.com/videos/wwdc/2010/?id=311)
 - [WWDC 2010 Advanced Performance Analysis with Instruments](https://developer.apple.com/videos/wwdc/2010/?id=309)
 - [WWDC 2011 iOS Performance and Power Optimization with Instruments](https://developer.apple.com/videos/wwdc/2011/?id=312)
@@ -263,9 +263,8 @@ cases:
 
 Resources for getting started with unit testing in Xcode 5:
 
-- [Unit Test Your App](https://developer.apple.com/library/ios/documentation/ToolsLanguages/Conceptual/Xcode_Overview/UnitTestYourApp/UnitTestYourApp.html)
-- [WWDC 2013 Testing in Xcode 5](https://developer.apple.com/wwdc/videos/?id=409)
-
+- [Unit Test Your App](https://developer.apple.com/library/ios/documentation/DeveloperTools/Conceptual/testing_with_xcode/Testing_with_Xcode.pdf)
+- [WWDC 2014 Testing in Xcode 6](https://developer.apple.com/videos/play/wwdc2014-414/)
 ### SDK Compatibility
 
 It's quite often that we need to support older iOS versions. There are few ways to do this: 
