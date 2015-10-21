@@ -264,8 +264,7 @@ cases:
 Resources for getting started with unit testing in Xcode 5:
 
 - [Unit Test Your App](https://developer.apple.com/library/ios/documentation/DeveloperTools/Conceptual/testing_with_xcode/Testing_with_Xcode.pdf)
-- [WWDC 2013 Testing in Xcode 5](https://developer.apple.com/wwdc/videos/?id=409)
-
+- [WWDC 2014 Testing in Xcode 6](https://developer.apple.com/videos/play/wwdc2014-414/)
 ### SDK Compatibility
 
 It's quite often that we need to support older iOS versions. There are few ways to do this: 
