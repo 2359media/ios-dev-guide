@@ -12,6 +12,7 @@ suggestions.
 
 * [Why This Is Required](#why-this-is-required)
 * [Objective-C Coding Conventions](#objective-c-coding-conventions)
+* [Swift Coding Conventions](#swift-coding-conventions)
 * [Project Technical Conventions](#project-technical-conventions)
     * [Xcode](#xcode)
 	* [CocoaPods](#cocoapods)
@@ -22,7 +23,7 @@ suggestions.
     * [Instruments](#instruments)
     * [Unit Testing](#unit-testing)
     * [SDK Compatibility](#sdk-compatibility)
-* [Recommended Third-party Libraries](#recommended-third-party-libraries)
+* [Recommended Third-party Libraries for Objective-C](#recommended-third-party-libraries-for-objective-c)
     * [Networking](#networking)
     * [JSON Parsing](#json-parsing)
     * [Urban Airship (Device Registration)](#urban-airship-device-registration)
@@ -36,6 +37,7 @@ suggestions.
     * [UIView (Nib Loading and Geometry Shortcuts)](#uiview-nib-loading-and-geometry-shortcuts)
     * [Page Control](#page-control)
     * [UIAlertView and UIActionSheet (Block-based wrappers)](#uialertview-and-uiactionsheet-block-based-wrappers)
+* [Recommended Third-Party Libraries for Swift](#recommended-third-party-libraries-for-swift)
 * [Git](#git)
     * [Pull Request](#pull-request)
 * [References](#references)
@@ -51,6 +53,12 @@ Follow these two style guides:
 
 * [NYTimes Objective-C Style Guide](https://github.com/NYTimes/objective-c-style-guide)
 * [2359media fork of GitHub Objective-C Conventions](https://github.com/2359media/objective-c-conventions)
+
+## Swift Coding Conventions
+
+Follow swift style guide from Raywinderlinch 
+
+* [Raywinderlinch Swift Style Guide](https://github.com/raywenderlich/swift-style-guide)
 
 ## Project Technical Conventions
 
@@ -119,9 +127,10 @@ local folder.
 
 ### Graphic Assets
 
-* Use [Asset Catalogs](https://developer.apple.com/library/ios/recipes/xcode_help-image_catalog-1.0/Recipe.html) in Xcode 5.
-* Must include both @1x and @2x sizes.
+* Use [Asset Catalogs](https://developer.apple.com/library/ios/recipes/xcode_help-image_catalog-1.0/Recipe.html) in Xcode.
+* Must include images for all sized.
 * Use JPEG format for large images, e.g. background images.
+* Talk to designer to optimize pngs before adding it to the Asset Catalog.
 
 ### Groups Structure in Project Navigator
 
@@ -150,6 +159,8 @@ Assuming *MyApp* is the project name, we follow these conventions:
       preloaded data
     * __Supporting Files__: a default group with Xcode template
 * No group for external libraries. Use CocoaPods to manage them.  
+* Use intent based grouping. For each intent, create a new group with all the corresponding files (viewControllers, views, storyboards, xib) inside it. For e.g if **MyApp** has **Account** and **Products** create two groups `Account` and `Product` under **MyApp**
+* Each intent would've it's own storyboard. If Intent has multiple viewControllers, then each viewController would have it's own storyboard. Creating separate storyboards would prevent merge conflicts when developers are working on same stream.
 
 ### Warnings
 
@@ -261,10 +272,16 @@ cases:
 - Whenever a bug is found, write a unit test to cover it before fixing
   the bug.
 
-Resources for getting started with unit testing in Xcode 5:
+
+Resources for getting started with unit testing in Xcode :
 
 - [Unit Test Your App](https://developer.apple.com/library/ios/documentation/DeveloperTools/Conceptual/testing_with_xcode/Testing_with_Xcode.pdf)
 - [WWDC 2014 Testing in Xcode 6](https://developer.apple.com/videos/play/wwdc2014-414/)
+
+Use the following 3rd party libraries if you want to do BDD style testing.
+
+- [Quick](https://github.com/Quick/Quick)
+- [Nimble](https://github.com/Quick/Nimble)
 ### SDK Compatibility
 
 It's quite often that we need to support older iOS versions. There are few ways to do this: 
@@ -283,7 +300,7 @@ But, the most obvious way is by checking the Foundation framework version number
 
 Also, make sure to read [Supporting iOS 6](https://developer.apple.com/library/ios/documentation/userexperience/conceptual/transitionguide/SupportingEarlieriOS.html) in iOS 7 UI Transition Guide. 
 
-## Recommended Third-party Libraries
+## Recommended Third-party Libraries for Objective C
 
 Here are a list of libraries that are widely used in our projects.
 Developers are recommended to choose the listed library for that
@@ -386,6 +403,21 @@ AFNetworking 2.0 officially supports iOS 6+, Mac OS X 10.8+, and Xcode 5. If you
 [PSAlertView](https://github.com/steipete/PSAlertView) by Peter Steinberger
 
 > Modern block-based wrappers for UIAlertView and UIActionSheet.
+
+## Recommended Third Party Libraries for Swift
+
+### [Alamofire](https://github.com/Alamofire/Alamofire)
+
+> HTTP networking library written in Swift.
+
+### [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+
+> JSON parser in Swift.
+
+### [PureLayout](https://github.com/PureLayout/PureLayout)
+
+> AutoLayout utility library. 
+
 
 ## Git
 
